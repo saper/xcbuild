@@ -7,6 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE pbxbuild_HEADERS Headers/pbxbuild/**/*.h)
 add_library(pbxbuild STATIC
             Sources/DirectedGraph.cpp
             Sources/HeaderMap.cpp
@@ -64,7 +65,7 @@ add_library(pbxbuild STATIC
             Sources/Build/Context.cpp
             Sources/Build/Environment.cpp
             Sources/Build/DependencyResolver.cpp
-            )
+            ${pbxbuild_HEADERS})
 
 target_link_libraries(pbxbuild PUBLIC xcsdk xcworkspace xcscheme pbxproj pbxspec pbxsetting dependency process util plist ext)
 target_include_directories(pbxbuild PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

@@ -7,6 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE car_HEADERS Headers/car/**/*.h)
 add_library(car STATIC
             Sources/Reader.cpp
             Sources/AttributeList.cpp
@@ -14,7 +15,7 @@ add_library(car STATIC
             Sources/Rendition.cpp
             Sources/car_format.c
             Sources/Writer.cpp
-            )
+            ${car_HEADERS})
 
 find_package(ZLIB REQUIRED)
 target_include_directories(car PRIVATE "${ZLIB_INCLUDE_DIR}")

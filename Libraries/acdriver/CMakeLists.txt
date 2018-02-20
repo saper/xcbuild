@@ -7,6 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE acdriver_HEADERS Headers/acdriver/**/*.h)
 add_library(acdriver STATIC
             Sources/Options.cpp
             Sources/Driver.cpp
@@ -39,7 +40,7 @@ add_library(acdriver STATIC
             Sources/Compile/StickersIconSet.cpp
             Sources/Compile/TextureSet.cpp
             Sources/ContentsAction.cpp
-            )
+            ${acdriver_HEADERS})
 
 target_link_libraries(acdriver PUBLIC xcassets process util plist graphics dependency ext bom car)
 target_include_directories(acdriver PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

@@ -7,6 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE xcdriver_HEADERS Headers/xcdriver/**/*.h)
 add_library(xcdriver STATIC
             Sources/Action.cpp
             Sources/Driver.cpp
@@ -21,7 +22,7 @@ add_library(xcdriver STATIC
             Sources/Usage.cpp
             Sources/UsageAction.cpp
             Sources/VersionAction.cpp
-            )
+            ${xcdriver_HEADERS})
 
 # Copy project LICENSE into build directory as a header.
 if ("${PROJECT_SOURCE_DIR}/LICENSE" IS_NEWER_THAN "${CMAKE_CURRENT_BINARY_DIR}/LICENSE.h")

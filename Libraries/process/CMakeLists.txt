@@ -7,6 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE process_HEADERS Headers/process/**/*.h)
 add_library(process STATIC
             Sources/Context.cpp
             Sources/DefaultContext.cpp
@@ -17,7 +18,7 @@ add_library(process STATIC
             Sources/User.cpp
             Sources/DefaultUser.cpp
             Sources/MemoryUser.cpp
-            )
+            ${process_HEADERS})
 
 target_link_libraries(process PUBLIC ext util)
 target_include_directories(process PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

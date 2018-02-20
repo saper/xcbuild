@@ -7,6 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE util_HEADERS Headers/util/**/*.h)
 add_library(util STATIC
             Sources/FSUtil.cpp
             Sources/Filesystem.cpp
@@ -24,7 +25,7 @@ add_library(util STATIC
             Sources/Wildcard.cpp
             #
             Sources/md5.c
-            )
+            ${util_HEADERS})
 
 target_link_libraries(util PUBLIC ext)
 target_include_directories(util PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

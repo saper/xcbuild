@@ -7,13 +7,14 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE dependency_HEADERS Headers/dependency/**/*.h)
 add_library(dependency STATIC
             Sources/DependencyInfo.cpp
             Sources/DependencyInfoFormat.cpp
             Sources/BinaryDependencyInfo.cpp
             Sources/DirectoryDependencyInfo.cpp
             Sources/MakefileDependencyInfo.cpp
-            )
+            ${dependency_HEADERS})
 
 target_link_libraries(dependency PUBLIC util ext)
 target_include_directories(dependency PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

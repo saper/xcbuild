@@ -7,10 +7,11 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE ninja_HEADERS Headers/ninja/**/*.h)
 add_library(ninja STATIC
             Sources/Writer.cpp
             Sources/Value.cpp
-            )
+            ${ninja_HEADERS})
 
 target_link_libraries(ninja PUBLIC)
 target_include_directories(ninja PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

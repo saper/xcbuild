@@ -7,13 +7,13 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-
+file(GLOB_RECURSE xcexecution_HEADERS Headers/xcexecution/**/*.h)
 add_library(xcexecution STATIC
             Sources/Parameters.cpp
             Sources/Executor.cpp
             Sources/SimpleExecutor.cpp
             Sources/NinjaExecutor.cpp
-            )
+            ${xcexecution_HEADERS})
 
 target_link_libraries(xcexecution PUBLIC xcformatter pbxbuild xcscheme xcworkspace pbxproj pbxsetting process util dependency ninja builtin)
 target_include_directories(xcexecution PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

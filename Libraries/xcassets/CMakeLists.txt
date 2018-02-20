@@ -7,6 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE xcassets_HEADERS Headers/xcassets/**/*.h)
 add_library(xcassets STATIC
             Sources/BrandAssetRole.cpp
             Sources/Compression.cpp
@@ -62,7 +63,7 @@ add_library(xcassets STATIC
             Sources/Asset/Stickers.cpp
             Sources/Asset/StickersIconSet.cpp
             Sources/Asset/TextureSet.cpp
-            )
+            ${xcassets_HEADERS})
 
 target_link_libraries(xcassets PUBLIC util plist ext)
 target_include_directories(xcassets PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

@@ -7,12 +7,13 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE xcworkspace_HEADERS Headers/xcworkspace/**/*.h)
 add_library(xcworkspace STATIC
             Sources/XC/Workspace.cpp
             Sources/XC/FileRef.cpp
             Sources/XC/Group.cpp
             Sources/XC/GroupItem.cpp
-            )
+            ${xcworkspace_HEADERS})
 
 target_link_libraries(xcworkspace PUBLIC pbxsetting process util plist)
 target_include_directories(xcworkspace PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

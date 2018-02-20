@@ -7,6 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE plist_HEADERS Headers/plist/**/*.h)
 add_library(plist STATIC
             Sources/ObjectType.cpp
             Sources/Array.cpp
@@ -54,7 +55,7 @@ add_library(plist STATIC
             Sources/Format/JSON.cpp
             #
             Sources/Format/Any.cpp
-            )
+            ${plist_HEADERS})
 
 target_link_libraries(plist PRIVATE util)
 

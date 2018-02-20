@@ -7,6 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE pbxsetting_HEADERS Headers/pbxsetting/**/*.h)
 add_library(pbxsetting STATIC
             Sources/Condition.cpp
             Sources/DefaultSettings.cpp
@@ -16,7 +17,7 @@ add_library(pbxsetting STATIC
             Sources/Type.cpp
             Sources/Value.cpp
             Sources/XC/Config.cpp
-            )
+            ${pbxsetting_HEADERS})
 
 target_link_libraries(pbxsetting PUBLIC process util plist)
 target_include_directories(pbxsetting PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

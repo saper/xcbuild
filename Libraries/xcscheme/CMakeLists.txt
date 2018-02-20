@@ -7,6 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE xcscheme_HEADERS Headers/xcscheme/**/*.h)
 add_library(xcscheme STATIC
             Sources/SchemeGroup.cpp
             Sources/XC/Action.cpp
@@ -26,7 +27,7 @@ add_library(xcscheme STATIC
             Sources/XC/Test.cpp
             Sources/XC/TestAction.cpp
             Sources/XC/TestableReference.cpp
-            )
+            ${xcscheme_HEADERS})
 
 target_link_libraries(xcscheme PUBLIC pbxsetting util plist)
 target_include_directories(xcscheme PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

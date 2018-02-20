@@ -7,11 +7,12 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE graphics_HEADERS Headers/graphics/**/*.h)
 add_library(graphics STATIC
             Sources/Image.cpp
             Sources/PixelFormat.cpp
             Sources/Format/PNG.cpp
-            )
+            ${graphics_HEADERS})
 target_link_libraries(graphics PUBLIC ext)
 target_include_directories(graphics PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 

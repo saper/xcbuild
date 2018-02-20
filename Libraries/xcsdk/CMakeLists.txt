@@ -7,6 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE xcsdk_HEADERS Headers/xcsdk/**/*.h)
 add_library(xcsdk STATIC
             Sources/Configuration.cpp
             Sources/Environment.cpp
@@ -16,7 +17,7 @@ add_library(xcsdk STATIC
             Sources/SDK/Product.cpp
             Sources/SDK/Target.cpp
             Sources/SDK/Toolchain.cpp
-            )
+			${xcsdk_HEADERS})
 
 target_link_libraries(xcsdk PUBLIC pbxsetting process util plist)
 target_include_directories(xcsdk PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

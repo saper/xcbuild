@@ -7,6 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE builtin_HEADERS Headers/builtin/**/*.h)
 add_library(builtin STATIC
             Sources/Driver.cpp
             Sources/Registry.cpp
@@ -37,7 +38,7 @@ add_library(builtin STATIC
             #
             Sources/embeddedBinaryValidationUtility/Options.cpp
             Sources/embeddedBinaryValidationUtility/Driver.cpp
-            )
+            ${builtin_HEADERS})
 
 find_library(CORE_FOUNDATION CoreFoundation)
 if ("${CORE_FOUNDATION}" STREQUAL "CORE_FOUNDATION-NOTFOUND")

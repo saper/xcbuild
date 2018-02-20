@@ -7,11 +7,12 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
+file(GLOB_RECURSE bom_HEADERS Headers/bom/**/*.h)
 add_library(bom STATIC
             Sources/bom.c
             Sources/bom_memory.c
             Sources/bom_tree.c
-            )
+            ${bom_HEADERS})
 
 target_link_libraries(bom PUBLIC util)
 if ("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
