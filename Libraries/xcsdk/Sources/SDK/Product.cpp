@@ -34,6 +34,10 @@ parse(plist::Dictionary const *dict)
     auto PBV  = unpack.cast <plist::String> ("ProductBuildVersion");
     auto PC   = unpack.cast <plist::String> ("ProductCopyright");
 
+    // These keys may be present in the plist, but we ignore them.
+    (void)unpack.cast<plist::String>("BuildAliasOf");
+    (void)unpack.cast<plist::String>("BuildID");
+
     if (!unpack.complete(true)) {
         fprintf(stderr, "%s", unpack.errorText().c_str());
     }

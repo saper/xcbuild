@@ -35,6 +35,9 @@ parse(plist::Dictionary const *dict)
     auto CFBSVS = unpack.cast <plist::String> ("CFBundleShortVersionString");
     auto CFBV   = unpack.cast <plist::String> ("CFBundleVersion");
 
+    // These keys might be present, but we ignore them.
+    (void)unpack.cast<plist::String>("BuildAliasOf");
+
     if (!unpack.complete(true)) {
         fprintf(stderr, "%s", unpack.errorText().c_str());
     }
