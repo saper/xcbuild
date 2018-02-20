@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(plist
+add_library(plist STATIC
             Sources/ObjectType.cpp
             Sources/Array.cpp
             Sources/Boolean.cpp
@@ -74,7 +74,6 @@ endif ()
 
 target_include_directories(plist PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 target_include_directories(plist PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/PrivateHeaders")
-install(TARGETS plist DESTINATION usr/lib)
 
 add_executable(plutil Tools/plutil.cpp)
 target_link_libraries(plutil PRIVATE plist process util)

@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(xcworkspace
+add_library(xcworkspace STATIC
             Sources/XC/Workspace.cpp
             Sources/XC/FileRef.cpp
             Sources/XC/Group.cpp
@@ -16,7 +16,6 @@ add_library(xcworkspace
 
 target_link_libraries(xcworkspace PUBLIC pbxsetting process util plist)
 target_include_directories(xcworkspace PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
-install(TARGETS xcworkspace DESTINATION usr/lib)
 
 add_executable(dump_xcworkspace Tools/dump_xcworkspace.cpp)
 target_link_libraries(dump_xcworkspace xcworkspace xcscheme pbxproj util plist)

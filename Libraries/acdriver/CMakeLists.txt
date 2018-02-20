@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(acdriver
+add_library(acdriver STATIC
             Sources/Options.cpp
             Sources/Driver.cpp
             Sources/Output.cpp
@@ -43,7 +43,6 @@ add_library(acdriver
 
 target_link_libraries(acdriver PUBLIC xcassets process util plist graphics dependency ext bom car)
 target_include_directories(acdriver PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
-install(TARGETS acdriver DESTINATION usr/lib)
 
 add_executable(actool Tools/actool.cpp)
 target_link_libraries(actool PRIVATE acdriver)

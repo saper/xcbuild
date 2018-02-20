@@ -7,11 +7,9 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(ext
+add_library(ext STATIC
             Sources/optional.cpp
             )
 
 target_link_libraries(ext PUBLIC)
 target_include_directories(ext PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
-install(TARGETS ext DESTINATION usr/lib)
-

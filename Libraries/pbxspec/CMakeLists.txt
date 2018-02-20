@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(pbxspec
+add_library(pbxspec STATIC
             Sources/Manager.cpp
             Sources/SpecificationType.cpp
             Sources/PBX/Architecture.cpp
@@ -30,7 +30,6 @@ add_library(pbxspec
 target_link_libraries(pbxspec PUBLIC pbxsetting util plist ext)
 target_include_directories(pbxspec PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 target_include_directories(pbxspec PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/PrivateHeaders")
-install(TARGETS pbxspec DESTINATION usr/lib)
 
 add_executable(dump_xcspec Tools/dump_xcspec.cpp)
 target_link_libraries(dump_xcspec pbxspec)

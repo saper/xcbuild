@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(xcsdk
+add_library(xcsdk STATIC
             Sources/Configuration.cpp
             Sources/Environment.cpp
             Sources/SDK/Manager.cpp
@@ -20,7 +20,6 @@ add_library(xcsdk
 
 target_link_libraries(xcsdk PUBLIC pbxsetting process util plist)
 target_include_directories(xcsdk PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
-install(TARGETS xcsdk DESTINATION usr/lib)
 
 add_executable(xcrun Tools/xcrun.cpp)
 target_link_libraries(xcrun xcsdk util)

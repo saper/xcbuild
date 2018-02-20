@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(util
+add_library(util STATIC
             Sources/FSUtil.cpp
             Sources/Filesystem.cpp
             Sources/DefaultFilesystem.cpp
@@ -28,7 +28,6 @@ add_library(util
 
 target_link_libraries(util PUBLIC ext)
 target_include_directories(util PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
-install(TARGETS util DESTINATION usr/lib)
 
 if (BUILD_TESTING)
   ADD_UNIT_GTEST(util MemoryFilesystem Tests/test_MemoryFilesystem.cpp)

@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(xcdriver
+add_library(xcdriver STATIC
             Sources/Action.cpp
             Sources/Driver.cpp
             Sources/Options.cpp
@@ -33,7 +33,6 @@ target_include_directories(xcdriver PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
 
 target_link_libraries(xcdriver PUBLIC xcexecution xcformatter pbxbuild xcworkspace xcsdk pbxsetting process util plist builtin)
 target_include_directories(xcdriver PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
-install(TARGETS xcdriver DESTINATION usr/lib)
 
 add_executable(xcbuild Tools/xcbuild.cpp)
 target_link_libraries(xcbuild xcdriver)

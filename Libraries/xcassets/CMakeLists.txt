@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(xcassets
+add_library(xcassets STATIC
             Sources/BrandAssetRole.cpp
             Sources/Compression.cpp
             Sources/CubeFace.cpp
@@ -66,7 +66,6 @@ add_library(xcassets
 
 target_link_libraries(xcassets PUBLIC util plist ext)
 target_include_directories(xcassets PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
-install(TARGETS xcassets DESTINATION usr/lib)
 
 add_executable(dump_xcassets Tools/dump_xcassets.cpp)
 target_link_libraries(dump_xcassets PRIVATE xcassets)

@@ -7,14 +7,13 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(ninja
+add_library(ninja STATIC
             Sources/Writer.cpp
             Sources/Value.cpp
             )
 
 target_link_libraries(ninja PUBLIC)
 target_include_directories(ninja PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
-install(TARGETS ninja DESTINATION usr/lib)
 
 if (BUILD_TESTING)
   ADD_UNIT_GTEST(ninja Value Tests/test_Value.cpp)

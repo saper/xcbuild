@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(builtin
+add_library(builtin STATIC
             Sources/Driver.cpp
             Sources/Registry.cpp
             #
@@ -51,7 +51,6 @@ endif ()
 
 target_link_libraries(builtin PUBLIC dependency util plist pbxsetting ${CORE_FOUNDATION} ${CORE_SERVICES})
 target_include_directories(builtin PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
-install(TARGETS builtin DESTINATION usr/lib)
 
 add_executable(builtin-copy Tools/copy.cpp)
 target_link_libraries(builtin-copy builtin)

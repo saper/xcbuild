@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(car
+add_library(car STATIC
             Sources/Reader.cpp
             Sources/AttributeList.cpp
             Sources/Facet.cpp
@@ -27,7 +27,6 @@ endif ()
 
 target_link_libraries(car PUBLIC ext bom ${COMPRESSION})
 target_include_directories(car PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
-install(TARGETS car DESTINATION usr/lib)
 
 add_executable(dump_car Tools/dump_car.cpp)
 target_link_libraries(dump_car PRIVATE car graphics)

@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(dependency
+add_library(dependency STATIC
             Sources/DependencyInfo.cpp
             Sources/DependencyInfoFormat.cpp
             Sources/BinaryDependencyInfo.cpp
@@ -17,7 +17,6 @@ add_library(dependency
 
 target_link_libraries(dependency PUBLIC util ext)
 target_include_directories(dependency PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
-install(TARGETS dependency DESTINATION usr/lib)
 
 add_executable(dependency-info-tool Tools/dependency-info-tool.cpp)
 target_link_libraries(dependency-info-tool dependency process util)

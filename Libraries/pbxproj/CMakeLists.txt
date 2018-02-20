@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(pbxproj
+add_library(pbxproj STATIC
             Sources/Context.cpp
             Sources/ISA.cpp
             Sources/PlistHelpers.cpp
@@ -44,7 +44,6 @@ add_library(pbxproj
 target_link_libraries(pbxproj PUBLIC pbxsetting util plist)
 target_include_directories(pbxproj PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 target_include_directories(pbxproj PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/PrivateHeaders")
-install(TARGETS pbxproj DESTINATION usr/lib)
 
 add_executable(dump_xcodeproj Tools/dump_xcodeproj.cpp)
 target_link_libraries(dump_xcodeproj pbxproj xcscheme pbxsetting util plist)

@@ -7,7 +7,7 @@
 # of patent rights can be found in the PATENTS file in the same directory.
 #
 
-add_library(graphics
+add_library(graphics STATIC
             Sources/Image.cpp
             Sources/PixelFormat.cpp
             Sources/Format/PNG.cpp
@@ -37,8 +37,6 @@ else ()
   target_include_directories(graphics PRIVATE "${PNG_INCLUDE_DIRS}")
   target_compile_definitions(graphics PRIVATE "${PNG_DEFINITIONS}")
 endif ()
-
-install(TARGETS graphics DESTINATION usr/lib)
 
 if (BUILD_TESTING)
   ADD_UNIT_GTEST(graphics PixelFormat Tests/test_PixelFormat.cpp)
