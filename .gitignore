@@ -6,3 +6,6 @@
 /build-*/
 /project/
 
+# JetBrains CLion
+/cmake-build-*/
+/.idea
