@@ -366,9 +366,24 @@ Create(Build::Environment const &buildEnvironment, Build::Context const &buildCo
          * All settings added; determine target SDK.
          */
         std::string sdkroot = determinationEnvironment.resolve("SDKROOT");
-        sdk = buildEnvironment.sdkManager()->findTarget(sdkroot);
+        if (!sdkroot.empty()) {
+            sdk = buildEnvironment.sdkManager()->findTarget(sdkroot);
+        } else {
+            auto platform = determinationEnvironment.resolve("SUPPORTED_PLATFORMS");
+            if (platform.empty()) {
+                // The default platform in Xcode 9.3 is "macosx".
+                platform = "macosx";
+            }
+
+            sdk = buildEnvironment.sdkManager()->findTarget(platform);
+        }
+
         if (sdk == nullptr) {
-            fprintf(stderr, "error: unable to find sdkroot %s\n", sdkroot.c_str());
+            if (!sdkroot.empty()) {
+                fprintf(stderr, "error: unable to find sdkroot %s\n", sdkroot.c_str());
+            } else {
+                fprintf(stderr, "error: unable to find sdkroot \"\"\n");
+            }
             return ext::nullopt;
         }
 
