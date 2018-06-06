@@ -15,7 +15,6 @@
 #include <pbxsetting/Type.h>
 #include <pbxsetting/XC/Config.h>
 #include <libutil/FSUtil.h>
-#include <libutil/Filesystem.h>
 
 #include <algorithm>
 #include <iterator>
@@ -24,7 +23,6 @@
 namespace Build = pbxbuild::Build;
 namespace Target = pbxbuild::Target;
 using pbxbuild::WorkspaceContext;
-using libutil::Filesystem;
 using libutil::FSUtil;
 
 Target::Environment::
@@ -367,7 +365,7 @@ Create(Build::Environment const &buildEnvironment, Build::Context const &buildCo
          */
         std::string sdkroot = determinationEnvironment.resolve("SDKROOT");
         if (!sdkroot.empty()) {
-            sdk = buildEnvironment.sdkManager()->findTarget(sdkroot);
+          sdk = buildEnvironment.sdkManager()->findTarget(nullptr, sdkroot);
         } else {
             auto platform = determinationEnvironment.resolve("SUPPORTED_PLATFORMS");
             if (platform.empty()) {
@@ -481,7 +479,7 @@ Create(Build::Environment const &buildEnvironment, Build::Context const &buildCo
     std::vector<xcsdk::SDK::Toolchain::shared_ptr> toolchains;
     std::vector<std::string> effectiveToolchainPaths;
     for (std::string const &toolchainName : pbxsetting::Type::ParseList(environment.resolve("TOOLCHAINS"))) {
-        if (xcsdk::SDK::Toolchain::shared_ptr toolchain = buildEnvironment.sdkManager()->findToolchain(toolchainName)) {
+        if (xcsdk::SDK::Toolchain::shared_ptr toolchain = buildEnvironment.sdkManager()->findToolchain(nullptr, toolchainName)) {
             // TODO: Apply toolchain override build settings.
             toolchains.push_back(toolchain);
             effectiveToolchainPaths.push_back(toolchain->path());

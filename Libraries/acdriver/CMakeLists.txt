@@ -11,6 +11,7 @@ file(GLOB_RECURSE acdriver_HEADERS Headers/acdriver/**/*.h)
 add_library(acdriver STATIC
             Sources/Options.cpp
             Sources/Driver.cpp
+            Sources/NonStandard.cpp
             Sources/Output.cpp
             Sources/Result.cpp
             Sources/VersionAction.cpp
