@@ -93,5 +93,5 @@ if (BUILD_TESTING)
   endfunction ()
 endif ()
 
-add_subdirectory(Libraries)
+add_subdirectory(src)
 add_subdirectory(Specifications)
