@@ -14,6 +14,7 @@
 #include <pbxsetting/Setting.h>
 #include <pbxsetting/Type.h>
 #include <pbxsetting/XC/Config.h>
+#include <libutil/DefaultFilesystem.h>
 #include <libutil/FSUtil.h>
 
 #include <algorithm>
@@ -373,7 +374,8 @@ Create(Build::Environment const &buildEnvironment, Build::Context const &buildCo
                 platform = "macosx";
             }
 
-            sdk = buildEnvironment.sdkManager()->findTarget(platform);
+            auto fs = libutil::DefaultFilesystem();
+            sdk = buildEnvironment.sdkManager()->findTarget(&fs, platform);
         }
 
         if (sdk == nullptr) {
