@@ -21,6 +21,9 @@ namespace libutil {
 
 class Filesystem {
 public:
+    typedef std::shared_ptr<Filesystem> shared_ptr;
+
+public:
     /*
      * The type of a filesystem entry.
      */
