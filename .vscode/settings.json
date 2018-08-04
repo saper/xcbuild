@@ -2,8 +2,22 @@
     "cmake.configureOnOpen": true,
     "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools",
     "C_Cpp.configurationWarnings": "Disabled",
+    "C_Cpp.formatting": "Disabled",
     "files.associations": {
+        "*.*proj": "xml",
         "optional": "cpp",
-        "*.h": "cpp"
+        "*.h": "cpp",
+        "functional": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "__config": "cpp",
+        "__nullptr": "cpp",
+        "cstddef": "cpp",
+        "exception": "cpp",
+        "initializer_list": "cpp",
+        "stdexcept": "cpp",
+        "typeinfo": "cpp",
+        "algorithm": "cpp"
     }
 }
