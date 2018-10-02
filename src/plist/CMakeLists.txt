@@ -57,6 +57,7 @@ add_library(plist STATIC
             Sources/Format/Any.cpp
             ${plist_HEADERS})
 
+set_target_properties(plist PROPERTIES FOLDER "Libraries")
 target_link_libraries(plist PRIVATE util)
 
 if ("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
@@ -77,10 +78,12 @@ target_include_directories(plist PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 target_include_directories(plist PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/PrivateHeaders")
 
 add_executable(plutil Tools/plutil.cpp)
+set_target_properties(plutil PROPERTIES FOLDER "Tools")
 target_link_libraries(plutil PRIVATE plist process util)
 install(TARGETS plutil DESTINATION usr/bin)
 
 add_executable(PlistBuddy Tools/PlistBuddy.cpp)
+set_target_properties(PlistBuddy PROPERTIES FOLDER "Tools")
 target_link_libraries(PlistBuddy PRIVATE plist util)
 install(TARGETS PlistBuddy DESTINATION usr/bin)
 

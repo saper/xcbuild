@@ -65,10 +65,12 @@ add_library(xcassets STATIC
             Sources/Asset/TextureSet.cpp
             ${xcassets_HEADERS})
 
+set_target_properties(xcassets PROPERTIES FOLDER "Libraries")
 target_link_libraries(xcassets PUBLIC util plist ext)
 target_include_directories(xcassets PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 
 add_executable(dump_xcassets Tools/dump_xcassets.cpp)
+set_target_properties(dump_xcassets PROPERTIES FOLDER "Tools")
 target_link_libraries(dump_xcassets PRIVATE xcassets)
 
 if (BUILD_TESTING)

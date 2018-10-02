@@ -18,6 +18,7 @@ add_library(car STATIC
             ${car_HEADERS})
 
 find_package(ZLIB REQUIRED)
+set_target_properties(car PROPERTIES FOLDER "Libraries")
 target_include_directories(car PRIVATE "${ZLIB_INCLUDE_DIR}")
 target_link_libraries(car PRIVATE ${ZLIB_LIBRARIES})
 
@@ -30,6 +31,7 @@ target_link_libraries(car PUBLIC ext bom ${COMPRESSION})
 target_include_directories(car PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 
 add_executable(dump_car Tools/dump_car.cpp)
+set_target_properties(dump_car PROPERTIES FOLDER "Tools")
 target_link_libraries(dump_car PRIVATE car graphics)
 
 if (BUILD_TESTING)

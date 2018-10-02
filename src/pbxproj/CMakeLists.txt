@@ -43,9 +43,11 @@ add_library(pbxproj STATIC
             ${pbxproj_HEADERS})
 
 target_link_libraries(pbxproj PUBLIC pbxsetting util plist)
+set_target_properties(pbxproj PROPERTIES FOLDER "Libraries")
 target_include_directories(pbxproj PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 target_include_directories(pbxproj PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/PrivateHeaders")
 
 add_executable(dump_xcodeproj Tools/dump_xcodeproj.cpp)
+set_target_properties(dump_xcodeproj PROPERTIES FOLDER "Tools")
 target_link_libraries(dump_xcodeproj pbxproj xcscheme pbxsetting util plist)
 

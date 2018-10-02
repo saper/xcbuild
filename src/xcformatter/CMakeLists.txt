@@ -14,5 +14,6 @@ add_library(xcformatter STATIC
             Sources/NullFormatter.cpp
             ${xcformatter_HEADERS})
 
+set_target_properties(xcformatter PROPERTIES FOLDER "Libraries")
 target_link_libraries(xcformatter PUBLIC pbxbuild pbxproj pbxsetting)
 target_include_directories(xcformatter PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

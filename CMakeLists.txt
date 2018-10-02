@@ -13,6 +13,7 @@ cmake_minimum_required(VERSION 3.0)
 cmake_policy(SET CMP0054 NEW)
 
 set(BUILD_SHARED_LIBS True CACHE BOOL "Build shared libraries." FORCE)
+set_property(GLOBAL PROPERTY USE_FOLDERS TRUE)
 
 # Platform options.
 if ("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
@@ -90,6 +91,7 @@ if (BUILD_TESTING)
     target_link_libraries("${TARGET_NAME}" PRIVATE "${LIBRARY}" gtest gtest_main)
     target_include_directories("${TARGET_NAME}" PRIVATE "${CMAKE_SOURCE_DIR}/ThirdParty/googletest/googletest/include")
     add_test(NAME "${TARGET_NAME}" COMMAND "${TARGET_NAME}")
+    set_target_properties("${TARGET_NAME}" PROPERTIES FOLDER "Tests/${LIBRARY}")
   endfunction ()
 endif ()
 

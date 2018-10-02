@@ -15,6 +15,7 @@ add_library(xcexecution STATIC
             Sources/NinjaExecutor.cpp
             ${xcexecution_HEADERS})
 
+set_target_properties(xcexecution PROPERTIES FOLDER "Libraries")
 target_link_libraries(xcexecution PUBLIC xcformatter pbxbuild xcscheme xcworkspace pbxproj pbxsetting process util dependency ninja builtin)
 target_include_directories(xcexecution PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 

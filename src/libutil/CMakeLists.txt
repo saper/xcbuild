@@ -27,6 +27,7 @@ add_library(util STATIC
             Sources/md5.c
             ${util_HEADERS})
 
+set_target_properties(util PROPERTIES FOLDER "Libraries")
 target_link_libraries(util PUBLIC ext)
 target_include_directories(util PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 

@@ -13,6 +13,7 @@ add_library(ninja STATIC
             Sources/Value.cpp
             ${ninja_HEADERS})
 
+set_target_properties(ninja PROPERTIES FOLDER "Libraries")
 target_link_libraries(ninja PUBLIC)
 target_include_directories(ninja PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 

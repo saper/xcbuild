@@ -67,10 +67,12 @@ add_library(pbxbuild STATIC
             Sources/Build/DependencyResolver.cpp
             ${pbxbuild_HEADERS})
 
+set_target_properties(pbxbuild PROPERTIES FOLDER "Libraries")
 target_link_libraries(pbxbuild PUBLIC xcsdk xcworkspace xcscheme pbxproj pbxspec pbxsetting dependency process util plist ext)
 target_include_directories(pbxbuild PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 
 add_executable(dump_hmap Tools/dump_hmap.cpp)
+set_target_properties(dump_hmap PROPERTIES FOLDER "Libraries")
 target_link_libraries(dump_hmap pbxbuild util plist)
 
 if (BUILD_TESTING)

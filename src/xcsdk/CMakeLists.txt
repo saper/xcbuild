@@ -19,14 +19,17 @@ add_library(xcsdk STATIC
             Sources/SDK/Toolchain.cpp
 			${xcsdk_HEADERS})
 
+set_target_properties(xcsdk PROPERTIES FOLDER "Libraries")
 target_link_libraries(xcsdk PUBLIC pbxsetting process util plist)
 target_include_directories(xcsdk PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 
 add_executable(xcrun Tools/xcrun.cpp)
+set_target_properties(xcrun PROPERTIES FOLDER "Tools")
 target_link_libraries(xcrun xcsdk util)
 install(TARGETS xcrun DESTINATION usr/bin)
 
 add_executable(xcode-select Tools/xcode-select.cpp)
+set_target_properties(xcode-select PROPERTIES FOLDER "Tools")
 target_link_libraries(xcode-select xcsdk util)
 install(TARGETS xcode-select DESTINATION usr/bin)
 

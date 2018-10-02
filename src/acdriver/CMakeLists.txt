@@ -43,10 +43,12 @@ add_library(acdriver STATIC
             Sources/ContentsAction.cpp
             ${acdriver_HEADERS})
 
+set_target_properties(acdriver PROPERTIES FOLDER "Libraries")
 target_link_libraries(acdriver PUBLIC xcassets process util plist graphics dependency ext bom car)
 target_include_directories(acdriver PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 
 add_executable(actool Tools/actool.cpp)
+set_target_properties(actool PROPERTIES FOLDER "Tools")
 target_link_libraries(actool PRIVATE acdriver)
 install(TARGETS actool DESTINATION usr/bin)
 

@@ -29,6 +29,7 @@ add_library(xcscheme STATIC
             Sources/XC/TestableReference.cpp
             ${xcscheme_HEADERS})
 
+set_target_properties(xcscheme PROPERTIES FOLDER "Libraries")
 target_link_libraries(xcscheme PUBLIC pbxsetting util plist)
 target_include_directories(xcscheme PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 

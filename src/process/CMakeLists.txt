@@ -20,6 +20,7 @@ add_library(process STATIC
             Sources/MemoryUser.cpp
             ${process_HEADERS})
 
+set_target_properties(process PROPERTIES FOLDER "Libraries")
 target_link_libraries(process PUBLIC ext util)
 target_include_directories(process PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 

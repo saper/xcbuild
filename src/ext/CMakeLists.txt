@@ -11,5 +11,6 @@ add_library(ext STATIC
             Sources/optional.cpp
             )
 
+set_target_properties(ext PROPERTIES FOLDER "Libraries")
 target_link_libraries(ext PUBLIC)
 target_include_directories(ext PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")

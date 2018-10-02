@@ -50,42 +50,52 @@ if ("${CORE_SERVICES}" STREQUAL "CORE_SERVICES-NOTFOUND")
   set(CORE_SERVICES "")
 endif ()
 
+set_target_properties(builtin PROPERTIES FOLDER "Libraries")
 target_link_libraries(builtin PUBLIC dependency util plist pbxsetting ${CORE_FOUNDATION} ${CORE_SERVICES})
 target_include_directories(builtin PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 
 add_executable(builtin-copy Tools/copy.cpp)
+set_target_properties(builtin-copy PROPERTIES FOLDER "Tools")
 target_link_libraries(builtin-copy builtin)
 install(TARGETS builtin-copy DESTINATION usr/bin)
 
 add_executable(builtin-copyPlist Tools/copyPlist.cpp)
+set_target_properties(builtin-copyPlist PROPERTIES FOLDER "Tools")
 target_link_libraries(builtin-copyPlist builtin)
 install(TARGETS builtin-copyPlist DESTINATION usr/bin)
 
 add_executable(builtin-copyStrings Tools/copyStrings.cpp)
+set_target_properties(builtin-copyStrings PROPERTIES FOLDER "Tools")
 target_link_libraries(builtin-copyStrings builtin)
 install(TARGETS builtin-copyStrings DESTINATION usr/bin)
 
 add_executable(builtin-copyTiff Tools/copyTiff.cpp)
+set_target_properties(builtin-copyTiff PROPERTIES FOLDER "Tools")
 target_link_libraries(builtin-copyTiff builtin)
 install(TARGETS builtin-copyTiff DESTINATION usr/bin)
 
 add_executable(builtin-infoPlistUtility Tools/infoPlistUtility.cpp)
+set_target_properties(builtin-infoPlistUtility PROPERTIES FOLDER "Tools")
 target_link_libraries(builtin-infoPlistUtility builtin)
 install(TARGETS builtin-infoPlistUtility DESTINATION usr/bin)
 
 add_executable(builtin-lsRegisterURL Tools/lsRegisterURL.cpp)
+set_target_properties(builtin-lsRegisterURL PROPERTIES FOLDER "Tools")
 target_link_libraries(builtin-lsRegisterURL builtin)
 install(TARGETS builtin-lsRegisterURL DESTINATION usr/bin)
 
 add_executable(builtin-productPackagingUtility Tools/productPackagingUtility.cpp)
+set_target_properties(builtin-productPackagingUtility PROPERTIES FOLDER "Tools")
 target_link_libraries(builtin-productPackagingUtility builtin)
 install(TARGETS builtin-productPackagingUtility DESTINATION usr/bin)
 
 add_executable(builtin-validationUtility Tools/validationUtility.cpp)
+set_target_properties(builtin-validationUtility PROPERTIES FOLDER "Tools")
 target_link_libraries(builtin-validationUtility builtin)
 install(TARGETS builtin-validationUtility DESTINATION usr/bin)
 
 add_executable(builtin-embeddedBinaryValidationUtility Tools/embeddedBinaryValidationUtility.cpp)
+set_target_properties(builtin-embeddedBinaryValidationUtility PROPERTIES FOLDER "Tools")
 target_link_libraries(builtin-embeddedBinaryValidationUtility builtin)
 install(TARGETS builtin-embeddedBinaryValidationUtility DESTINATION usr/bin)
 

@@ -29,9 +29,11 @@ add_library(pbxspec STATIC
             ${pbxspec_HEADERS})
 
 target_link_libraries(pbxspec PUBLIC pbxsetting util plist ext)
+set_target_properties(pbxspec PROPERTIES FOLDER "Libraries")
 target_include_directories(pbxspec PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 target_include_directories(pbxspec PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/PrivateHeaders")
 
 add_executable(dump_xcspec Tools/dump_xcspec.cpp)
+set_target_properties(dump_xcspec PROPERTIES FOLDER "Tools")
 target_link_libraries(dump_xcspec pbxspec)
 

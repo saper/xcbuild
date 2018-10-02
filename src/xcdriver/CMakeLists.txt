@@ -32,10 +32,12 @@ if ("${PROJECT_SOURCE_DIR}/LICENSE" IS_NEWER_THAN "${CMAKE_CURRENT_BINARY_DIR}/L
 endif ()
 target_include_directories(xcdriver PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
 
+set_target_properties(xcdriver PROPERTIES FOLDER "Libraries")
 target_link_libraries(xcdriver PUBLIC xcexecution xcformatter pbxbuild xcworkspace xcsdk pbxsetting process util plist builtin)
 target_include_directories(xcdriver PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 
 add_executable(xcbuild Tools/xcbuild.cpp)
+set_target_properties(xcbuild PROPERTIES FOLDER "Tools")
 target_link_libraries(xcbuild xcdriver)
 install(TARGETS xcbuild DESTINATION usr/bin)
 

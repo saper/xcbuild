@@ -20,10 +20,12 @@ add_library(pbxsetting STATIC
             ${pbxsetting_HEADERS})
 
 target_link_libraries(pbxsetting PUBLIC process util plist)
+set_target_properties(pbxsetting PROPERTIES FOLDER "Libraries")
 target_include_directories(pbxsetting PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Headers")
 target_include_directories(pbxsetting PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/PrivateHeaders")
 
 add_executable(dump_xcconfig Tools/dump_xcconfig.cpp)
+set_target_properties(dump_xcconfig PROPERTIES FOLDER "Tools")
 target_link_libraries(dump_xcconfig pbxsetting util)
 
 if (BUILD_TESTING)
