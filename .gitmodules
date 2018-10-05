@@ -4,3 +4,6 @@
 [submodule "ThirdParty/linenoise"]
 	path = ThirdParty/linenoise
 	url = https://github.com/antirez/linenoise.git
+[submodule "ThirdParty/yaml-cpp"]
+	path = ThirdParty/yaml-cpp
+	url = https://github.com/jbeder/yaml-cpp
