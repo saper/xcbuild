@@ -80,12 +80,12 @@ target_include_directories(plist PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/PrivateHea
 add_executable(plutil Tools/plutil.cpp)
 set_target_properties(plutil PROPERTIES FOLDER "Tools")
 target_link_libraries(plutil PRIVATE plist process util)
-install(TARGETS plutil DESTINATION usr/bin)
+install(TARGETS plutil DESTINATION bin)
 
 add_executable(PlistBuddy Tools/PlistBuddy.cpp)
 set_target_properties(PlistBuddy PROPERTIES FOLDER "Tools")
 target_link_libraries(PlistBuddy PRIVATE plist util)
-install(TARGETS PlistBuddy DESTINATION usr/bin)
+install(TARGETS PlistBuddy DESTINATION bin)
 
 if ("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
   # TODO

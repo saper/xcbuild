@@ -23,7 +23,7 @@ target_include_directories(dependency PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Header
 add_executable(dependency-info-tool Tools/dependency-info-tool.cpp)
 set_target_properties(dependency-info-tool PROPERTIES FOLDER "Tools")
 target_link_libraries(dependency-info-tool dependency process util)
-install(TARGETS dependency-info-tool DESTINATION usr/bin)
+install(TARGETS dependency-info-tool DESTINATION bin)
 
 add_executable(dump_dependency Tools/dump_dependency.cpp)
 set_target_properties(dump_dependency PROPERTIES FOLDER "Tools")
