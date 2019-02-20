@@ -17,7 +17,7 @@ add_library(xcsdk STATIC
             Sources/SDK/Product.cpp
             Sources/SDK/Target.cpp
             Sources/SDK/Toolchain.cpp
-			${xcsdk_HEADERS})
+            ${xcsdk_HEADERS})
 
 set_target_properties(xcsdk PROPERTIES FOLDER "Libraries")
 target_link_libraries(xcsdk PUBLIC pbxsetting process util plist)
