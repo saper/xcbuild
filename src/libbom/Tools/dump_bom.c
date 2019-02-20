@@ -54,7 +54,7 @@ main(int argc, char **argv)
     }
 
     struct bom_context *context;
-    context = bom_alloc_load(bom_context_memory_file(argv[1], true, 0));
+    context = bom_alloc_load(bom_context_memory_file(argv[1], false, 0));
     if (context == NULL) {
         fprintf(stderr, "error: failed to load BOM\n");
         return 1;
