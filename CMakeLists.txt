@@ -92,5 +92,6 @@ if (BUILD_TESTING)
   endfunction ()
 endif ()
 
+add_compile_options(-Wno-delete-non-virtual-dtor)
 add_subdirectory(Libraries)
 add_subdirectory(Specifications)
