@@ -80,25 +80,11 @@ target_link_libraries(plutil PRIVATE plist process util)
 install(TARGETS plutil DESTINATION usr/bin)
 
 add_executable(PlistBuddy Tools/PlistBuddy.cpp)
-target_link_libraries(PlistBuddy PRIVATE plist util)
+target_include_directories(plist PUBLIC "/usr/local/include")
+target_compile_definitions(PlistBuddy PRIVATE HAVE_LINENOISE)
+target_link_libraries(PlistBuddy PRIVATE plist util /usr/local/lib/liblinenoise.a)
 install(TARGETS PlistBuddy DESTINATION usr/bin)
 
-if ("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
-  # TODO
-else ()
-  set(LINENOISE_ROOT "${CMAKE_SOURCE_DIR}/ThirdParty/linenoise")
-  set(LINENOISE_SOURCE "${LINENOISE_ROOT}/linenoise.c")
-  if (EXISTS "${LINENOISE_SOURCE}")
-    add_library(linenoise "${LINENOISE_SOURCE}")
-    target_include_directories(linenoise PUBLIC "${LINENOISE_ROOT}")
-    if ("${CMAKE_SYSTEM_NAME}" MATCHES "Linux")
-      target_compile_definitions(linenoise PRIVATE _GNU_SOURCE)
-    endif ()
-
-    target_link_libraries(PlistBuddy PRIVATE linenoise)
-    target_compile_definitions(PlistBuddy PRIVATE HAVE_LINENOISE)
-  endif ()
-endif ()
 
 if (BUILD_TESTING)
   ADD_UNIT_GTEST(plist Boolean Tests/test_Boolean.cpp)

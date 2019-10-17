@@ -782,7 +782,9 @@ main(int argc, char **argv)
                 keepReading = false;
             }
 #if defined(HAVE_LINENOISE)
-            linenoiseFree(static_cast<void *>(line));
+            if (line != nullptr) {
+                free(line);
+            }
 #endif
         }
     }
